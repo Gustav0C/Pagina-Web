@@ -1,7 +1,7 @@
 (function ($) {
     "use strict";
 
-    // Spinner
+    // ICONO DE CARGANDO
     var spinner = function () {
         setTimeout(function () {
             if ($('#spinner').length > 0) {
@@ -12,11 +12,11 @@
     spinner();
     
     
-    // Initiate the wowjs
+    // INICIO DE LA LIBRERIA WOWJS
     new WOW().init();
 
 
-    // Sticky Navbar
+    // BARRA DE NAVEGACIÓN ESTATICA
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
             $('.sticky-top').css('top', '0px');
@@ -53,8 +53,7 @@
         }
     });
     
-    
-    // Back to top button
+    // BOTON DE REGRESO AL INICIO
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
             $('.back-to-top').fadeIn('slow');
@@ -63,7 +62,7 @@
         }
     });
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        $('html, body').animate({scrollTop: 0}, 1200, 'easeInOutExpo');
         return false;
     });
 
@@ -104,6 +103,17 @@
             }
         }
     });
-    
 })(jQuery);
 
+// CARRUSEL DOCENTES
+function showCarousel(carouselId) {
+    // Ocultar todos los carruseles
+    var carousels = document.querySelectorAll('.carousel');
+    carousels.forEach(function(carousel) {
+      carousel.classList.remove('active');
+    });
+  
+    // Mostrar el carrusel seleccionado
+    var selectedCarousel = document.getElementById(carouselId);
+    selectedCarousel.classList.add('active');
+  }
