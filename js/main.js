@@ -26,7 +26,7 @@
     });
     
     
-    // Dropdown on mouse hover
+    // MENU DESPLEGABLE DE NIVELES
     const $dropdown = $(".dropdown");
     const $dropdownToggle = $(".dropdown-toggle");
     const $dropdownMenu = $(".dropdown-menu");
@@ -67,7 +67,7 @@
     });
 
 
-    // Header carousel
+    // CARRUSEL PRINCIPAL
     $(".header-carousel").owlCarousel({
         autoplay: true,
         smartSpeed: 1500,
@@ -82,7 +82,7 @@
     });
 
 
-    // Testimonials carousel
+    // CARRUSEL DE RESEÑAS
     $(".testimonial-carousel").owlCarousel({
         autoplay: true,
         smartSpeed: 1000,
