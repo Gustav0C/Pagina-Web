@@ -81,7 +81,6 @@
         ]
     });
 
-
     // CARRUSEL DE RESEÑAS
     $(".testimonial-carousel").owlCarousel({
         autoplay: true,
@@ -105,15 +104,68 @@
     });
 })(jQuery);
 
-// CARRUSEL DOCENTES
-function showCarousel(carouselId) {
-    // Ocultar todos los carruseles
-    var carousels = document.querySelectorAll('.carousel');
-    carousels.forEach(function(carousel) {
-      carousel.classList.remove('active');
-    });
-  
-    // Mostrar el carrusel seleccionado
-    var selectedCarousel = document.getElementById(carouselId);
-    selectedCarousel.classList.add('active');
-  }
+// CARRUSEL DOCENTES y SELECCION DE BOTONES
+let currentSlide = 0;  
+
+function showCarousel(carouselId, button) {  
+    const buttons = document.querySelectorAll('.course-btn');  
+    buttons.forEach(btn => btn.classList.remove('selected'));  
+    button.classList.add('selected');  
+
+    const carousels = document.querySelectorAll('.carousel');  
+    carousels.forEach(carousel => {  
+        carousel.classList.remove('active');  
+    });  
+
+    const selectedCarousel = document.getElementById(carouselId);  
+    if (selectedCarousel) {  
+        selectedCarousel.classList.add('active');  
+        currentSlide = 0; // Reiniciar el índice al seleccionar un nuevo carrusel  
+        updateCarousel(selectedCarousel);  
+    }  
+}  
+
+function nextSlide() {  
+    const activeCarousel = document.querySelector('.carousel.active');  
+    const items = activeCarousel.querySelectorAll('.carousel-item');  
+    items[currentSlide].classList.remove('active');  
+    currentSlide = (currentSlide + 1) % items.length; // Cambia al siguiente  
+    items[currentSlide].classList.add('active');  
+}  
+
+function prevSlide() {  
+    const activeCarousel = document.querySelector('.carousel.active');  
+    const items = activeCarousel.querySelectorAll('.carousel-item');  
+    items[currentSlide].classList.remove('active');  
+    currentSlide = (currentSlide - 1 + items.length) % items.length; // Cambia al anterior  
+    items[currentSlide].classList.add('active');  
+}  
+
+function updateCarousel(carousel) {  
+    const items = carousel.querySelectorAll('.carousel-item');  
+    items.forEach((item, index) => {  
+        item.classList.remove('active');  
+        if (index === currentSlide) {  
+            item.classList.add('active');  
+        }  
+    });  
+}
+
+document.addEventListener("DOMContentLoaded", function() {  
+    const lazyImages = document.querySelectorAll('.lazy');  
+
+    const observer = new IntersectionObserver((entries, observer) => {  
+        entries.forEach(entry => {  
+            if (entry.isIntersecting) {  
+                const img = entry.target;  
+                img.src = img.dataset.src;  
+                img.classList.remove('lazy');  
+                observer.unobserve(img);  
+            }  
+        });  
+    });  
+
+    lazyImages.forEach(image => {  
+        observer.observe(image);  
+    });  
+});  

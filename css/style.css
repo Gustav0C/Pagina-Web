@@ -1,7 +1,7 @@
 :root {
-    --primary: #369edd;
+    --primary: #0A79AC;
     --light: #F0FBFC;
-    --dark: #181d38;
+    --dark: #030202;
 }
 
 .fw-medium {
@@ -42,7 +42,17 @@
     font-weight: 600;
     transition: .5s;
 }
-
+.btn-primarys{
+    background-color: var(--primary);
+    color: var(--light);
+}
+.btn-primarys:hover{
+    background-color: #1e93e2d7;
+    color:var(--light)
+}
+.btn-primary{
+    border-radius: 50px;
+}
 .btn.btn-primary,
 .btn.btn-secondary {
     color: #FFFFFF;
@@ -148,13 +158,12 @@
         opacity: 1;
     }
 }
-
-
 /*** CARRUSEL PRINCIPAL ***/
 @media (max-width: 768px) {
     .header-carousel .owl-carousel-item {
         position: relative;
         min-height: 500px;
+        width: 100%;
     }
     
     .header-carousel .owl-carousel-item img {
@@ -255,6 +264,7 @@
 .service-item {
     background: var(--light);
     transition: .5s;
+    border-radius: 15px;
 }
 
 .service-item:hover {
@@ -276,12 +286,17 @@
 .course-item img {
     transition: .5s;
 }
-
+.course-item{
+    border-radius: 20px;
+}
+.course-item img{
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
 .category a:hover img,
-.course-item:hover img {
+.course-item:hover img{
     transform: scale(1.1);
 }
-
 
 /*** EQUIPO ***/
 .team-item img {
@@ -431,6 +446,11 @@
     padding-right: 0;
     border-right: none;
 }
+@media (max-width: 998px) {
+    .footer iframe{
+        width: auto;
+    }
+}
 
 
 /*** DOCENTES ***/
@@ -438,6 +458,11 @@
     display: flex;
     transition: .5s;
 }
+.course-btn.selected{
+    color: var(--light) !important;
+    background: var(--primary);
+}
+
 .boton *{
     transition: .5s;
 }
@@ -574,4 +599,59 @@
     .video-item {
         width: 100%;
     }
+}
+@media (min-width: 992px) {
+    .footer .ubicacion{
+        width: 440px;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .nosotros {  
+        display: flex;
+        flex-direction: column; /* Cambia a columna en dispositivos pequeños */  
+    }  
+    .image {  
+        order: 2; 
+    }  
+    .text {  
+        order: 1; 
+    }  
+} 
+    .arrow {  
+        background-color: transparent;  
+        border: none;  
+        font-size: 24px;  
+        cursor: pointer;  
+        margin: 0 10px;  
+    }  
+
+    @media (max-width: 768px) {
+        .cat-item img{
+            align-items: center;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .cat-item img{
+            align-items: center;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .red{
+        border: 1px solid rgba(6, 48, 66, 0.297);
+        box-shadow: 1px 1px 2rem rgba(6, 48, 66, 0.453);
+        border-radius: 10px;
+    }
+.borde{
+    border: 1px solid rgba(0, 0, 0, 0.267);
+    border-radius: 10px;
+}
+.borde-2{
+    border-radius: 20px;
 }
